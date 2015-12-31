@@ -1,0 +1,24 @@
+{
+  "name": "sergiors/game",
+  "license": "MIT",
+  "authors": [
+    {
+        "name": "Sérgio Rafael Siqueira",
+        "email": "sergio@inbep.com.br"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Sergiors\\Game\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Sergiors\\Game\\Test\\": "tests"
+    }
+  },
+  "require": {},
+  "require-dev": {
+    "phpunit/phpunit": "^5.1"
+  }
+}
