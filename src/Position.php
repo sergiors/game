@@ -1,12 +1,13 @@
 <?php
-declare(strict_types=1);
+
+declare (strict_types = 1);
 
 namespace Sergiors\Game;
 
 /**
  * @author Sérgio Rafael Siqueira <sergio@inbep.com.br>
  */
-class Position implements PositionInterface
+final class Position implements PositionInterface
 {
     /**
      * @var int

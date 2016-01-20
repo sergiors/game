@@ -1,4 +1,5 @@
 <?php
+
 namespace Sergiors\Game\Test;
 
 use Sergiors\Game\SkillCollection;

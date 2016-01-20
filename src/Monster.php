@@ -7,6 +7,6 @@ namespace Sergiors\Game;
 /**
  * @author Sérgio Rafael Siqueira <sergio@inbep.com.br>
  */
-interface PlayableInterface extends CharacterInterface
+final class Monster extends AbstractCharacter
 {
 }

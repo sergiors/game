@@ -1,13 +1,17 @@
 <?php
-declare(strict_types=1);
+
+declare (strict_types = 1);
 
 namespace Sergiors\Game;
 
 /**
  * @author Sérgio Rafael Siqueira <sergio@inbep.com.br>
  */
-class SkillCollection implements \Countable, \ArrayAccess
+final class SkillCollection implements \Countable, \ArrayAccess
 {
+    /**
+     * @var array
+     */
     private $values = [];
 
     public function offsetExists($offset): bool

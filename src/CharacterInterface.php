@@ -1,5 +1,6 @@
 <?php
-declare(strict_types=1);
+
+declare (strict_types = 1);
 
 namespace Sergiors\Game;
 
@@ -8,7 +9,7 @@ namespace Sergiors\Game;
  */
 interface CharacterInterface
 {
-    public function getSkills();
+    public function getSkills(): SkillCollection;
 
     public function getPosition(): PositionInterface;
 

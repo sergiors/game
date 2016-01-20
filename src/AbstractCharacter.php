@@ -1,12 +1,13 @@
 <?php
-declare(strict_types=1);
+
+declare (strict_types = 1);
 
 namespace Sergiors\Game;
 
 /**
  * @author Sérgio Rafael Siqueira <sergio@inbep.com.br>
  */
-abstract class Character implements CharacterInterface
+abstract class AbstractCharacter implements CharacterInterface
 {
     /**
      * @var SkillInterface[]
@@ -24,7 +25,7 @@ abstract class Character implements CharacterInterface
         $this->position = new Position();
     }
 
-    public function getSkills()
+    public function getSkills(): SkillCollection
     {
         return $this->skills;
     }
@@ -34,9 +35,11 @@ abstract class Character implements CharacterInterface
         return $this->position;
     }
 
-    public function addSkill(SkillInterface $skill)
+    public function addSkill(SkillInterface $skill): CharacterInterface
     {
         $this->skills[] = $skill;
+
+        return $this;
     }
 
     public function setPosition(PositionInterface $position)
