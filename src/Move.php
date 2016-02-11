@@ -8,40 +8,40 @@ class Move
 {
     private $map;
 
-    private $player;
+    private $character;
 
-    public function __construct(Map $map, CharacterInterface $player)
+    public function __construct(Map $map, CharacterInterface $character)
     {
         $this->map = $map;
-        $this->player = $player;
+        $this->character = $character;
     }
 
     public function getArea()
     {
-        return $this->player->getArea();
+        return $this->character->getArea();
     }
 
     public function up()
     {
         $area = $this->map->getUpArea($this->getArea());
-        $this->player->setArea($area);
+        $this->character->setArea($area);
     }
 
     public function down()
     {
         $area = $this->map->getDownArea($this->getArea());
-        $this->player->setArea($area);
+        $this->character->setArea($area);
     }
 
     public function left()
     {
         $area = $this->map->getLeftArea($this->getArea());
-        $this->player->setArea($area);
+        $this->character->setArea($area);
     }
 
     public function right()
     {
         $area = $this->map->getRightArea($this->getArea());
-        $this->player->setArea($area);
+        $this->character->setArea($area);
     }
 }
