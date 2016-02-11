@@ -9,7 +9,7 @@ namespace Sergiors\Game;
  */
 interface CharacterInterface
 {
-    public function getSkills(): SkillCollection;
+    public function getSkills(): Collection;
 
     public function getArea(): AccessibleInterface;
 

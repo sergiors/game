@@ -10,7 +10,7 @@ class Map
 
     public function __construct()
     {
-        $this->areas = new AreaCollection();
+        $this->areas = new Collection();
     }
 
     public function getAreas()
@@ -18,8 +18,10 @@ class Map
         return $this->areas;
     }
 
-    public function addArea(AreaInterface $area)
+    public function addArea(AreaInterface $area): Map
     {
         $this->areas[] = $area;
+
+        return $this;
     }
 }

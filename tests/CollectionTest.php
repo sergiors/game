@@ -2,16 +2,16 @@
 
 namespace Sergiors\Game\Test;
 
-use Sergiors\Game\SkillCollection;
+use Sergiors\Game\Collection;
 
-class SkillCollectionTest extends \PHPUnit_Framework_TestCase
+class CollectionTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @test
      */
     public function shouldReturnACollection()
     {
-        $collection = new SkillCollection();
+        $collection = new Collection();
         $collection[10] = 'test';
         $collection['attack'] = true;
 
@@ -24,12 +24,26 @@ class SkillCollectionTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     */
+    public function shouldReturnItemWithoutIndex()
+    {
+        $collection = new Collection();
+        $collection[] = 'one';
+        $collection[] = 'two';
+        $collection[] = 'tree';
+        $collection[] = 'four';
+
+        $this->assertCount(4, $collection);
+    }
+
+    /**
+     * @test
      *
      * @expectedException \InvalidArgumentException
      */
     public function shouldReturnInvalidArgumentException()
     {
-        $collection = new SkillCollection();
+        $collection = new Collection();
         $collection['test'];
     }
 }

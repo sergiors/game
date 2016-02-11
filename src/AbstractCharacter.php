@@ -21,16 +21,16 @@ abstract class AbstractCharacter implements CharacterInterface
 
     public function __construct()
     {
-        $this->skills = new SkillCollection();
+        $this->skills = new Collection();
         $this->position = new Position();
     }
 
-    public function getSkills(): SkillCollection
+    public function getSkills(): Collection
     {
         return $this->skills;
     }
 
-    public function getArea(): AreaInterface
+    public function getArea(): AccessibleInterface
     {
         return $this->area;
     }

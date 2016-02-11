@@ -6,7 +6,7 @@ namespace Sergiors\Game;
 
 interface AreaInterface
 {
-    public function getPosition(): PositionInterface;
+    public function __construct(PositionInterface $position);
 
-    public function setPosition(PositionInterface $position);
+    public function getPosition(): PositionInterface;
 }

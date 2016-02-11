@@ -7,7 +7,7 @@ namespace Sergiors\Game;
 /**
  * @author Sérgio Rafael Siqueira <sergio@inbep.com.br>
  */
-final class SkillCollection implements \Countable, \ArrayAccess
+class Collection implements \Countable, \ArrayAccess
 {
     /**
      * @var array
@@ -30,6 +30,11 @@ final class SkillCollection implements \Countable, \ArrayAccess
 
     public function offsetSet($offset, $value)
     {
+        if (null === $offset) {
+            $this->values[] = $value;
+            return;
+        }
+
         $this->values[$offset] = $value;
     }
 
