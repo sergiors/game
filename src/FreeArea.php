@@ -4,7 +4,7 @@ declare (strict_types = 1);
 
 namespace Sergiors\Game;
 
-class Free implements AreaInterface, AccessibleInterface
+class FreeArea implements AreaInterface, AccessibleInterface
 {
     private $position;
 
