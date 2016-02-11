@@ -17,16 +17,32 @@ class MoveTest extends \PHPUnit_Framework_TestCase
     {
         $map = new Map();
         $map
-            ->addArea($initialArea = new FreeArea(new Position(1, 1)))
-            ->addArea(new FreeArea(new Position(1, 2)))
-            ->addArea(new FreeArea(new Position(2, 1)))
-            ->addArea(new FreeArea(new Position(2, 2)));
+            ->addArea($xy00 = new FreeArea(new Position(0, 0)))
+            ->addArea($xy01 = new FreeArea(new Position(0, 1)))
+            ->addArea($xy02 = new FreeArea(new Position(0, 2)))
+            ->addArea($xy03 = new FreeArea(new Position(0, 3)))
+            ->addArea($xy04 = new FreeArea(new Position(0, 4)))
+            ->addArea($xy10 = new FreeArea(new Position(1, 0)))
+            ->addArea($xy11 = new FreeArea(new Position(1, 1)))
+            ->addArea($xy12 = new FreeArea(new Position(1, 2)))
+            ->addArea($xy13 = new FreeArea(new Position(1, 3)))
+            ->addArea($xy14 = new FreeArea(new Position(1, 4)))
+            ->addArea($xy20 = new FreeArea(new Position(2, 0)))
+            ->addArea($xy21 = new FreeArea(new Position(2, 1)))
+            ->addArea($xy22 = new FreeArea(new Position(2, 2)))
+            ->addArea($xy23 = new FreeArea(new Position(2, 3)))
+            ->addArea($xy24 = new FreeArea(new Position(2, 4)))
+        ;
 
-        $player = new Player($initialArea);
-
-        $this->assertSame($player->getArea(), $initialArea);
-
+        $player = new Player($xy11);
         $move = new Move($map, $player);
-        $move->left();
+
+        $this->assertSame($player->getArea(), $xy11);
+
+        $move->up();
+        $this->assertSame($player->getArea(), $xy01);
+
+        $move->right();
+        $this->assertSame($player->getArea(), $xy02);
     }
 }

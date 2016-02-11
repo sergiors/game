@@ -26,28 +26,48 @@ class Map
 
     public function addArea(AreaInterface $area): Map
     {
-        $this->areas[] = $area;
+        $x = $area->getPosition()->getX();
+        $y = $area->getPosition()->getY();
+
+        $this->areas[sprintf('%d:%d', $x, $y)] = $area;
 
         return $this;
     }
 
-    public function getUpArea(AreaInterface $area): AreaInterface
+    public function getUpArea(AreaInterface $area)
     {
-
+        return $this->getAreaXY(
+            $area->getPosition()->getX() - 1,
+            $area->getPosition()->getY()
+        );
     }
 
-    public function getDownArea(AreaInterface $area): AreaInterface
+    public function getDownArea(AreaInterface $area)
     {
-
+        return $this->getAreaXY(
+            $area->getPosition()->getX() + 1,
+            $area->getPosition()->getY()
+        );
     }
 
-    public function getLeftArea(AreaInterface $area): AreaInterface
+    public function getLeftArea(AreaInterface $area)
     {
-
+        return $this->getAreaXY(
+            $area->getPosition()->getX(),
+            $area->getPosition()->getY() - 1
+        );
     }
 
-    public function getRightArea(AreaInterface $area): AreaInterface
+    public function getRightArea(AreaInterface $area)
     {
+        return $this->getAreaXY(
+            $area->getPosition()->getX(),
+            $area->getPosition()->getY() + 1
+        );
+    }
 
+    private function getAreaXY(int $x, int $y)
+    {
+        return $this->areas[sprintf('%d:%d', $x, $y)];
     }
 }
