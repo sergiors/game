@@ -10,9 +10,8 @@ class AbstractCharacterTest extends \PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function a()
+    public function skills()
     {
         $knight = $this->getMockForAbstractClass(AbstractCharacter::class);
-        $attack = $this->getMock(SkillInterface::class);
     }
 }

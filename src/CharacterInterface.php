@@ -11,9 +11,9 @@ interface CharacterInterface
 {
     public function getSkills(): SkillCollection;
 
-    public function getPosition(): PositionInterface;
+    public function getArea(): AccessibleInterface;
 
     public function addSkill(SkillInterface $skill);
 
-    public function setPosition(PositionInterface $position);
+    public function setArea(AccessibleInterface $area);
 }

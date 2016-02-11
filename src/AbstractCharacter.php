@@ -15,9 +15,9 @@ abstract class AbstractCharacter implements CharacterInterface
     private $skills;
 
     /**
-     * @var PositionInterface
+     * @var AreaInterface
      */
-    private $position;
+    private $area;
 
     public function __construct()
     {
@@ -30,9 +30,9 @@ abstract class AbstractCharacter implements CharacterInterface
         return $this->skills;
     }
 
-    public function getPosition(): PositionInterface
+    public function getArea(): AreaInterface
     {
-        return $this->position;
+        return $this->area;
     }
 
     public function addSkill(SkillInterface $skill): CharacterInterface
@@ -42,8 +42,8 @@ abstract class AbstractCharacter implements CharacterInterface
         return $this;
     }
 
-    public function setPosition(PositionInterface $position)
+    public function setArea(AccessibleInterface $area)
     {
-        $this->position = $position;
+        $this->area = $area;
     }
 }
