@@ -7,6 +7,6 @@ namespace Sergiors\Game;
 /**
  * @author Sérgio Rafael Siqueira <sergio@inbep.com.br>
  */
-final class Player extends AbstractCharacter implements PlayableInterface
+class Player extends AbstractCharacter implements PlayableInterface
 {
 }

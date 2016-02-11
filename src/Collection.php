@@ -21,7 +21,7 @@ class Collection implements \Countable, \ArrayAccess
 
     public function offsetGet($offset)
     {
-        if (false === $this->offsetExists($offset)) {
+        if (!$this->offsetExists($offset)) {
             throw new \InvalidArgumentException();
         }
 
@@ -41,7 +41,7 @@ class Collection implements \Countable, \ArrayAccess
 
     public function offsetUnset($offset)
     {
-        if (false === $this->offsetExists($offset)) {
+        if (!$this->offsetExists($offset)) {
             return;
         }
 
