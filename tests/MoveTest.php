@@ -5,6 +5,7 @@ namespace Sergiors\Game\Test;
 use Sergiors\Game\Map;
 use Sergiors\Game\Player;
 use Sergiors\Game\FreeArea;
+use Sergiors\Game\BlockArea;
 use Sergiors\Game\Position;
 use Sergiors\Game\Move;
 
@@ -20,7 +21,7 @@ class MoveTest extends \PHPUnit_Framework_TestCase
             ->addArea($xy00 = new FreeArea(new Position(0, 0)))
             ->addArea($xy01 = new FreeArea(new Position(0, 1)))
             ->addArea($xy02 = new FreeArea(new Position(0, 2)))
-            ->addArea($xy03 = new FreeArea(new Position(0, 3)))
+            ->addArea($xy03 = new BlockArea(new Position(0, 3)))
             ->addArea($xy04 = new FreeArea(new Position(0, 4)))
             ->addArea($xy10 = new FreeArea(new Position(1, 0)))
             ->addArea($xy11 = new FreeArea(new Position(1, 1)))
@@ -46,13 +47,14 @@ class MoveTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($player->getArea(), $xy02);
 
         $move->right();
-        $move->right();
+        $this->assertSame($player->getArea(), $xy02);
+
         $move->down();
         $move->down();
         $move->down();
         $move->down();
         $move->down();
 
-        $this->assertSame($player->getArea(), $xy24);
+        $this->assertSame($player->getArea(), $xy22);
     }
 }
