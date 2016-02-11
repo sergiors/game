@@ -69,7 +69,11 @@ class Map
     private function getAreaXY(int $x, int $y)
     {
         try {
-            return $this->areas[sprintf('%d:%d', $x, $y)];
+            $area = $this->areas[sprintf('%d:%d', $x, $y)];
+
+            if ($area instanceof AccessibleInterface) {
+                return $area;
+            }
         } catch (\InvalidArgumentException $e) {
         }
 
