@@ -8,7 +8,7 @@ use Sergiors\Game\Free;
 use Sergiors\Game\Position;
 use Sergiors\Game\Move;
 
-class PlayerTest extends \PHPUnit_Framework_TestCase
+class MoveTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @test
