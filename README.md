@@ -1,4 +1,8 @@
-primitive skills
-- Attack
-- Defence
-- Strength
+Game
+----
+
+A game engine in PHP.
+
+License
+-------
+MIT
