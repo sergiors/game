@@ -7,9 +7,12 @@ namespace Sergiors\Game;
 class Move
 {
     private $map;
+
     private $player;
 
-    public function __construct( Map $map, CharacterInterface $player)
+    private $nextUp;
+
+    public function __construct(Map $map, CharacterInterface $player)
     {
         $this->map = $map;
         $this->player = $player;
@@ -17,11 +20,17 @@ class Move
 
     public function up()
     {
+        if (!$this->nextUp instanceof AccessibleInterface) {
+            return;
+        }
 
+        $this->player->setArea($this->nextUp);
+        $this->nextUp = $this->map->getUpArea($this->player->getArea());
     }
 
     public function down()
     {
+
     }
 
     public function left()
