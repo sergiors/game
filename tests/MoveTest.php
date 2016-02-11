@@ -49,6 +49,10 @@ class MoveTest extends \PHPUnit_Framework_TestCase
         $move->right();
         $this->assertSame($player->getArea(), $xy02);
 
+        $move->left();
+        $this->assertSame($player->getArea(), $xy01);
+
+        $move->right();
         $move->down();
         $move->down();
         $move->down();
@@ -56,5 +60,6 @@ class MoveTest extends \PHPUnit_Framework_TestCase
         $move->down();
 
         $this->assertSame($player->getArea(), $xy22);
+        $this->assertCount(15, $map->getAreas());
     }
 }
