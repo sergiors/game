@@ -34,40 +34,45 @@ class Map
         return $this;
     }
 
-    public function getUpArea(AreaInterface $area)
+    public function getUpArea(AreaInterface $area): AreaInterface
     {
         return $this->getAreaXY(
             $area->getPosition()->getX() - 1,
             $area->getPosition()->getY()
-        );
+        ) ?: $area;
     }
 
-    public function getDownArea(AreaInterface $area)
+    public function getDownArea(AreaInterface $area): AreaInterface
     {
         return $this->getAreaXY(
             $area->getPosition()->getX() + 1,
             $area->getPosition()->getY()
-        );
+        ) ?: $area;
     }
 
-    public function getLeftArea(AreaInterface $area)
+    public function getLeftArea(AreaInterface $area): AreaInterface
     {
         return $this->getAreaXY(
             $area->getPosition()->getX(),
             $area->getPosition()->getY() - 1
-        );
+        ) ?: $area;
     }
 
-    public function getRightArea(AreaInterface $area)
+    public function getRightArea(AreaInterface $area): AreaInterface
     {
         return $this->getAreaXY(
             $area->getPosition()->getX(),
             $area->getPosition()->getY() + 1
-        );
+        ) ?: $area;
     }
 
     private function getAreaXY(int $x, int $y)
     {
-        return $this->areas[sprintf('%d:%d', $x, $y)];
+        try {
+            return $this->areas[sprintf('%d:%d', $x, $y)];
+        } catch (\InvalidArgumentException $e) {
+        }
+
+        return;
     }
 }

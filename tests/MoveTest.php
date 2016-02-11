@@ -44,5 +44,15 @@ class MoveTest extends \PHPUnit_Framework_TestCase
 
         $move->right();
         $this->assertSame($player->getArea(), $xy02);
+
+        $move->right();
+        $move->right();
+        $move->down();
+        $move->down();
+        $move->down();
+        $move->down();
+        $move->down();
+
+        $this->assertSame($player->getArea(), $xy24);
     }
 }

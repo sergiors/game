@@ -32,6 +32,7 @@ class Collection implements \Countable, \ArrayAccess
     {
         if (null === $offset) {
             $this->values[] = $value;
+
             return;
         }
 
